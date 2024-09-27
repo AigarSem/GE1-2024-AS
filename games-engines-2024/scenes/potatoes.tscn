@@ -32,7 +32,7 @@ mesh = SubResource("BoxMesh_2ph4c")
 skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12706, 2.04106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12706, 2.54944)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.552395, 0.427818, 0.715425, -0.612314, 0.790615, -2.53958e-08, -0.565625, -0.438064, 0.69869, 0, 0, 0)
