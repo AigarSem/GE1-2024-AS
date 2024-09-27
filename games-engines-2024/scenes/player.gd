@@ -20,9 +20,8 @@ func _process(delta: float) -> void:
 	
 	# Can use global_translate for movement based on the world
 	# Use translate for movement based on the object direction
-	translate(Vector3(0, 0, f * delta * speed))
-
-	
+	translate(Vector3(g * delta * speed, 0, f * delta * speed))
+	#translate(Vector3(g * delta * speed, 0, 0))
 	
 	
 	#rotate_y(deg_to_rad(rot_speed) * delta)

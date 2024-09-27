@@ -14,8 +14,8 @@ func _ready() -> void:
 	for row in range(rows):
 		for col in range(cols):
 			var brick = brick_scene.instantiate()
-			var mesh_instance = brick.get_node("MeshInstance3D")
-			mesh_instance.material_override = blue_material
+			#var mesh_instance = brick.get_node("MeshInstance3D")
+			#mesh_instance.material_override = blue_material
 			var pos = Vector3(col, row, 0)
 			brick.position = pos
 			add_child(brick)
