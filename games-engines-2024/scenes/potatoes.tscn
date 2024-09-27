@@ -1,7 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://blpbvkgb8iwj4"]
+[gd_scene load_steps=9 format=3 uid="uid://blpbvkgb8iwj4"]
 
 [ext_resource type="Material" uid="uid://tbq63w7nog3a" path="res://green.tres" id="1_owdo0"]
 [ext_resource type="Material" uid="uid://bb634wx7v1x36" path="res://blue.tres" id="2_fymdb"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="3_15pqk"]
+[ext_resource type="Script" path="res://scenes/node_3d.gd" id="4_qetig"]
+[ext_resource type="PackedScene" uid="uid://mqgedjxcf6l1" path="res://brick.tscn" id="5_bkgpw"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gx0o5"]
 size = Vector2(100, 100)
@@ -20,12 +23,21 @@ mesh = SubResource("PlaneMesh_gx0o5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 material_override = ExtResource("2_fymdb")
 mesh = SubResource("BoxMesh_87ics")
+script = ExtResource("3_15pqk")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+[node name="Turret" type="MeshInstance3D" parent="Player"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0.55, -0.5)
 material_override = ExtResource("2_fymdb")
 mesh = SubResource("BoxMesh_2ph4c")
 skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.563531, 2.04106)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12706, 2.04106)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.552395, 0.427818, 0.715425, -0.612314, 0.790615, -2.53958e-08, -0.565625, -0.438064, 0.69869, 0, 0, 0)
+
+[node name="wall" type="Node3D" parent="."]
+transform = Transform3D(0.866025, -2.18557e-08, -0.5, 2.18557e-08, 1, -5.85622e-09, 0.5, -5.85622e-09, 0.866025, 0, 0, 0)
+script = ExtResource("4_qetig")
+brick_scene = ExtResource("5_bkgpw")
