@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	
 	print(global_transform.basis.z)
 	
-	velocity = - v * speed * f
+	velocity = v * speed * f
 	move_and_slide()
 	
 	var r = Input.get_axis("turn_left", "turn_right")
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	DebugDraw2D.set_text("glo basis.z", global_transform.basis.z)
 	
 	
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_pressed("shoot"):
 		var bullet = bullet_scene.instantiate()
 		get_parent().add_child(bullet)
 		
