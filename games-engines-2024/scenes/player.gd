@@ -58,5 +58,4 @@ func _physics_process(delta: float) -> void:
 		bullet.global_rotation = bullet_spawn.global_rotation
 		
 		get_parent().add_child(bullet)
-	
 	pass
