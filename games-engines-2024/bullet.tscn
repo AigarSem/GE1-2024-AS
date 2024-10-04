@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bv1rjtsmk8sl"]
+[gd_scene load_steps=5 format=3 uid="uid://bv1rjtsmk8sl"]
 
 [ext_resource type="Script" path="res://bullet.gd" id="1_he4t3"]
+[ext_resource type="Material" uid="uid://kb7m6unfe5af" path="res://red.tres" id="2_bwo6d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_iw2af"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -12,6 +13,7 @@ size = Vector3(0.1, 0.1, 0.1)
 script = ExtResource("1_he4t3")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = ExtResource("2_bwo6d")
 mesh = SubResource("BoxMesh_iw2af")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
