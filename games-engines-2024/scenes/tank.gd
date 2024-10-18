@@ -1,12 +1,12 @@
 extends CharacterBody3D
 
 @export var speed:float = -1
-@export var rot_speed = 180.0
+@export var rot_speed = 120.0
 
 @export var bullet_scene:PackedScene
 @export var bullet_spawn:Node3D
 
-@export var fire_rate:int = 10
+@export var fire_rate:int = 2
 
 @onready  var timer = $Timer
 
