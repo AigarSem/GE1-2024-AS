@@ -65,3 +65,30 @@ func _physics_process(delta: float) -> void:
 		bullet.global_rotation = global_rotation
 		timer.start()
 	pass
+
+@export var enemy:Node3D
+
+func _process(delta: float) -> void:
+	var e = $"../enemy"
+	
+	# Is enemy inside FOV or not
+	var toEnemy:Vector3 = e.global_position - global_position
+	
+	# Returns normalized vector
+	toEnemy = toEnemy.normalized()
+	
+	var d:float = global_transform.basis.z.dot(toEnemy)
+	
+	# Inverse cosine of vector d
+	var theta = acos(d)
+	var fov = 45
+	theta = rad_to_deg(theta)
+	if theta < fov:
+		DebugDraw2D.set_text("In FOV", "Yes")
+	else:
+		DebugDraw2D.set_text("In FOV", "No")
+	
+	DebugDraw2D.set_text("Theta", theta)
+	
+	
+	pass
