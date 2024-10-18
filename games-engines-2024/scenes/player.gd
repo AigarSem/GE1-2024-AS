@@ -61,10 +61,7 @@ func _physics_process(delta: float) -> void:
 	rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
 	
 	if d > 0.5:
-		
-	else:
-		
-	rotate(transform.basis.x,deg_to_rad(relative.y * deg_to_rad(rot_speed) * delta))
+		rotate(transform.basis.x,deg_to_rad(relative.y * deg_to_rad(rot_speed) * delta))
 	relative = Vector2.ZERO
 
 

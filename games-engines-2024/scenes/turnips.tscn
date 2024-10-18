@@ -46,7 +46,6 @@ brick_size = 1.0
 [node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("5_cqk1p")
-rot_speed = null
 
 [node name="Camera3D" type="Camera3D" parent="player"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.496139, 0)
