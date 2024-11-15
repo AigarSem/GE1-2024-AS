@@ -66,7 +66,7 @@ func create_mesh():
 			
 			# Calculate normal for first triangle
 			
-			st.add_vertex(br)            
+			st.add_vertex(br)
 			st.add_vertex(tl)
 			st.add_vertex(bl)
 			

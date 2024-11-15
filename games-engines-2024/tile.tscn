@@ -1,11 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://gqbq6m1v2n2v"]
+[gd_scene load_steps=3 format=3 uid="uid://gqbq6m1v2n2v"]
 
 [ext_resource type="Script" path="res://terrain_tile.gd" id="1_i7hqf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y3ul7"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="Node3D" type="Node3D" parent="."]
 script = ExtResource("1_i7hqf")
+material = SubResource("StandardMaterial3D_y3ul7")
 
 [node name="Camera3D" type="Camera3D" parent="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.848409, 0.529342, 0, -0.529342, 0.848409, 0.747375, 2.47369, 3.1145)
