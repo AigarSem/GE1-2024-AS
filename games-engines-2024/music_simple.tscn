@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://cros2jrj0pv4b"]
+
+[ext_resource type="Script" path="res://note1.gd" id="1_m0wbq"]
+[ext_resource type="Script" path="res://music_toys.gd" id="1_otf2q"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_f0u1x"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_v2phf"]
+radius = 0.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_ky6vw"]
+radius = 0.05
+height = 0.1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_76lbp"]
+radius = 0.05
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_h82qs"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vcsuv"]
+size = Vector2(10, 10)
+
+[sub_resource type="Environment" id="Environment_ro1pg"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_otf2q")
+
+[node name="note" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653992, 0)
+collision_mask = 2
+script = ExtResource("1_m0wbq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="note"]
+mesh = SubResource("SphereMesh_f0u1x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="note"]
+shape = SubResource("SphereShape3D_v2phf")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="note"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="AudioListener3D" type="AudioListener3D" parent="XROrigin3D/XRCamera3D"]
+
+[node name="left" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="left_area" type="Area3D" parent="XROrigin3D/left"]
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/left/left_area"]
+mesh = SubResource("SphereMesh_ky6vw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/left/left_area"]
+shape = SubResource("SphereShape3D_76lbp")
+
+[node name="right" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="right_area" type="Area3D" parent="XROrigin3D/right"]
+collision_layer = 2
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/right/right_area"]
+mesh = SubResource("SphereMesh_ky6vw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="XROrigin3D/right/right_area"]
+shape = SubResource("SphereShape3D_76lbp")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_h82qs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_vcsuv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ro1pg")
+
+[connection signal="area_entered" from="note" to="note" method="_on_area_entered"]
